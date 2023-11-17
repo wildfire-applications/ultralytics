@@ -454,7 +454,7 @@ class LoadTensor:
         if im.max() > 1.0 + torch.finfo(im.dtype).eps:  # torch.float32 eps is 1.2e-07
             LOGGER.warning(f'WARNING ⚠️ torch.Tensor inputs should be normalized 0.0-1.0 but max value is {im.max()}. '
                            f'Dividing input by 255.')
-            im = im.float() / 255.0
+            im = im.float() / 65535.0
 
         return im
 
